@@ -70,7 +70,7 @@ class Player {
       case 'down':
       this.y += 83
       if (this.y > 400) {
-        this.y = 400;
+        this.y = 386;
       }
       break;
     }
