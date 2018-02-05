@@ -1,14 +1,25 @@
 // Enemies our player must avoid
+'use strict';
 
-class Enemy {
+function getRandomInt(max, min) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+class Character {
   constructor(ex, why, speed) {
     this.x = ex;
     this.y = why;
+  }
+}
+
+class Enemy extends Character{
+  constructor(ex, why, speed) {
+    super(ex, why, speed)
     this.speed = speed;
     this.sprite = 'images/enemy-bug.png';
   }
   update(dt) {
-  this.x += this.speed * dt
+    this.x += this.speed * dt
     if (this.x > 515) {
       this.x = -125;
       this.speed = getRandomInt(600, 150)
@@ -19,29 +30,25 @@ class Enemy {
   }
 }
 
-function getRandomInt(max, min) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
 let buggy1 = new Enemy(88, 220, getRandomInt(600, 150));
 let buggy2 = new Enemy(88, 137, getRandomInt(600, 150));
 let buggy3 = new Enemy(88, 54, getRandomInt(600, 150));
 
 
-
-class Player {
+class Player extends Character{
   constructor() {
+    super();
     this.sprite = 'images/char-boy.png';
     this.x = 202;
     this.y = 386;
   }
   update() {
     for (let n = 0; n < 3; n++){
-    if (Math.abs(player.x - allEnemies[n].x) <= 81 && (player.y === allEnemies[n].y)) {
-      this.x = 202;
-      this.y = 386;
+      if (Math.abs(player.x - allEnemies[n].x) <= 81 && (player.y === allEnemies[n].y)) {
+        this.x = 202;
+        this.y = 386;
+      }
     }
-  }
   }
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -78,7 +85,6 @@ class Player {
 }
 
 let player = new Player() ;
-
 
 let allEnemies = [buggy1, buggy2, buggy3];
 
