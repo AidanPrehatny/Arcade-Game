@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-'use strict';
+"use strict";
 
 function getRandomInt(max, min) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -14,15 +14,15 @@ class Character {
 
 class Enemy extends Character{
   constructor(ex, why, speed) {
-    super(ex, why, speed)
+    super(ex, why, speed);
     this.speed = speed;
     this.sprite = 'images/enemy-bug.png';
   }
   update(dt) {
-    this.x += this.speed * dt
+    this.x += this.speed * dt;
     if (this.x > 515) {
       this.x = -125;
-      this.speed = getRandomInt(600, 150)
+      this.speed = getRandomInt(600, 150);
     }
   }
   render() {
@@ -56,26 +56,26 @@ class Player extends Character{
   handleInput(arrowKeys) {
     switch(arrowKeys){
       case 'left':
-      this.x -= 101
+      this.x -= 101;
       if (this.x < 0) {
         this.x = 0;
       }
       break;
       case 'up':
-      this.y -= 83
+      this.y -= 83;
       if (this.y < -15) {
         this.y = 386;
         this.x = 202;
       }
       break;
       case 'right':
-      this.x += 101
+      this.x += 101;
       if (this.x > 404) {
         this.x = 404;
       }
       break;
       case 'down':
-      this.y += 83
+      this.y += 83;
       if (this.y > 400) {
         this.y = 386;
       }
