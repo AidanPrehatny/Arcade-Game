@@ -21,7 +21,7 @@ There are no dependancies to play this game. Should be fully accessible to all i
 
 ## Built With
 
-* HTML5 5
+* HTML5 Canvas
 * Javascript ES6 class syntax
 
 ## Authors
